@@ -17,6 +17,7 @@
 
 package abstraction.card;
 
+// TODO ? overrider compareTo
 public enum CardRank {
 
     DEUCE(2),

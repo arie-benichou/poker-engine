@@ -32,17 +32,17 @@ final class Card implements CardInterface {
     }
 
     @Override
-    public final CardType getType() {
+    public CardType getType() {
         return this.type;
     }
 
     @Override
-    public final CardTypeColor getColor() {
+    public CardTypeColor getColor() {
         return this.type.getColor();
     }
 
     @Override
-    public final CardRank getRank() {
+    public CardRank getRank() {
         return this.rank;
     }
 

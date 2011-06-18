@@ -29,19 +29,19 @@ final class Combinations implements Iterator<int[]>, Iterable<int[]> {
     private int[] combination;
     private BigInteger numberOfCombinationsLeft;
 
-    public final int getNumberOfElements() {
+    public int getNumberOfElements() {
         return this.numberOfElements;
     }
 
-    public final int getNumberOfElementsTaken() {
+    public int getNumberOfElementsTaken() {
         return this.numberOfElementsTaken;
     }
 
-    public final BigInteger getNumberOfCombinations() {
+    public BigInteger getNumberOfCombinations() {
         return this.numberOfCombinations;
     }
 
-    private final BigInteger getNumberOfCombinationsLeft() {
+    private BigInteger getNumberOfCombinationsLeft() {
         return this.numberOfCombinationsLeft;
     }
 

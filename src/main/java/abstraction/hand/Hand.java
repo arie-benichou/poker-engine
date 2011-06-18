@@ -24,6 +24,8 @@ import abstraction.card.Cards;
 
 // TODO implémenter Iterable / Iterator ?
 // TODO tester une factory avec cache des mains
+// TODO avoir la possibilité de considérer l'as comme le début de la suite
+// 1,2,3,4,5
 // TODO à documenter
 public final class Hand implements Comparable<Hand> {
 
@@ -80,11 +82,7 @@ public final class Hand implements Comparable<Hand> {
         this.isMadeOfSameType = isMadeOfSameType(colorSum, typeProduct);
     }
 
-    public final CardInterface[] getCards() {
-        return this.cards;
-    }
-
-    public final int getRankProduct() {
+    public int getRankProduct() {
         return this.rankProduct;
     }
 
@@ -96,17 +94,17 @@ public final class Hand implements Comparable<Hand> {
         return this.isSequence;
     }
 
-    private final Rankable[] getData() {
+    private Rankable[] getData() {
         if (this.data == null)
             this.data = HandParser.parse(this);
         return this.data;
     }
 
-    private final Rankable getData(final int index) {
+    private Rankable getData(final int index) {
         return this.getData()[index];
     }
 
-    public final HandType getType() {
+    public HandType getType() {
         return (HandType) this.getData(0);
     }
 

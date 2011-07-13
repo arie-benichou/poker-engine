@@ -30,7 +30,7 @@ public class HandParserTest {
     @Test
     public void parseHighCard() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.HEARTS, CardRank.KING),
@@ -38,13 +38,13 @@ public class HandParserTest {
                                 Cards.get(CardType.HEARTS, CardRank.JACK),
                                 Cards.get(CardType.DIAMONDS, CardRank.NINE)
                         )
-                        )[0].equals(HandType.HighCard));
+                        ).equals(HandType.HighCard));
     }
 
     @Test
     public void parseOnePair() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.DIAMONDS, CardRank.ACE),
@@ -52,13 +52,13 @@ public class HandParserTest {
                                 Cards.get(CardType.HEARTS, CardRank.JACK),
                                 Cards.get(CardType.HEARTS, CardRank.NINE)
                         )
-                        )[0].equals(HandType.OnePair));
+                        ).equals(HandType.OnePair));
     }
 
     @Test
     public void parseTwoPair() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.DIAMONDS, CardRank.ACE),
@@ -66,13 +66,13 @@ public class HandParserTest {
                                 Cards.get(CardType.DIAMONDS, CardRank.QUEEN),
                                 Cards.get(CardType.HEARTS, CardRank.NINE)
                         )
-                        )[0].equals(HandType.TwoPair));
+                        ).equals(HandType.TwoPair));
     }
 
     @Test
     public void parseThreeOfAKind() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.DIAMONDS, CardRank.ACE),
@@ -80,13 +80,13 @@ public class HandParserTest {
                                 Cards.get(CardType.DIAMONDS, CardRank.QUEEN),
                                 Cards.get(CardType.HEARTS, CardRank.NINE)
                         )
-                        )[0].equals(HandType.ThreeOfAKind));
+                        ).equals(HandType.ThreeOfAKind));
     }
 
     @Test
     public void parseStraight() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.DIAMONDS, CardRank.KING),
@@ -94,13 +94,13 @@ public class HandParserTest {
                                 Cards.get(CardType.SPADES, CardRank.JACK),
                                 Cards.get(CardType.HEARTS, CardRank.TEN)
                         )
-                        )[0].equals(HandType.Straight));
+                        ).equals(HandType.Straight));
     }
 
     @Test
     public void parseFlush() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.HEARTS, CardRank.QUEEN),
@@ -108,13 +108,13 @@ public class HandParserTest {
                                 Cards.get(CardType.HEARTS, CardRank.EIGHT),
                                 Cards.get(CardType.HEARTS, CardRank.DEUCE)
                         )
-                        )[0].equals(HandType.Flush));
+                        ).equals(HandType.Flush));
     }
 
     @Test
     public void parseFullHouse() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.SPADES, CardRank.ACE),
@@ -122,13 +122,13 @@ public class HandParserTest {
                                 Cards.get(CardType.CLUBS, CardRank.TEN),
                                 Cards.get(CardType.HEARTS, CardRank.TEN)
                         )
-                        )[0].equals(HandType.FullHouse));
+                        ).equals(HandType.FullHouse));
     }
 
     @Test
     public void parseFourOfAKind() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.ACE),
                                 Cards.get(CardType.SPADES, CardRank.TEN),
@@ -136,13 +136,13 @@ public class HandParserTest {
                                 Cards.get(CardType.CLUBS, CardRank.TEN),
                                 Cards.get(CardType.HEARTS, CardRank.TEN)
                         )
-                        )[0].equals(HandType.FourOfAKind));
+                        ).equals(HandType.FourOfAKind));
     }
 
     @Test
     public void parseStraightFlush() {
         Assert.assertTrue(
-                HandParser.parse(
+                HandParser.computeType(
                         new Hand(
                                 Cards.get(CardType.HEARTS, CardRank.DEUCE),
                                 Cards.get(CardType.HEARTS, CardRank.TREY),
@@ -150,7 +150,7 @@ public class HandParserTest {
                                 Cards.get(CardType.HEARTS, CardRank.FIVE),
                                 Cards.get(CardType.HEARTS, CardRank.SIX)
                         )
-                        )[0].equals(HandType.StraightFlush));
+                        ).equals(HandType.StraightFlush));
     }
 
 }

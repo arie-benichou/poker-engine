@@ -1,7 +1,6 @@
 
 package abstraction.hand;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -49,6 +48,7 @@ public class HandTest {
         new Hand(cards);
     }
 
+    /*
     @Test
     public void testGetRankProduct() {
         final CardInterface[] cards = {
@@ -63,7 +63,9 @@ public class HandTest {
                 * CardRank.FIVE.getValue();
         assertTrue(hand.getRankProduct() == rankProduct);
     }
+    */
 
+    /*
     @Test
     public void testIsMadeOfSameType() {
         final CardInterface[] cardsMadeOfDifferentTypes = {
@@ -83,7 +85,9 @@ public class HandTest {
                 };
         assertTrue(new Hand(cardsMadeOfSameType).isMadeOfSameType());
     }
+    */
 
+    /*
     @Test
     public void testIsSequence() {
         final CardInterface[] fiveCardsWithNoConsecutiveRanks = {
@@ -103,6 +107,7 @@ public class HandTest {
                 };
         assertTrue(new Hand(fiveCardsWithConsecutiveRanks).isSequence());
     }
+    */
 
     @Test
     public void testGetType() {

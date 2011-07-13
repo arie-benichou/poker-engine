@@ -17,8 +17,6 @@
 
 package abstraction;
 
-import java.util.Arrays;
-
 import abstraction.card.CardInterface;
 import abstraction.card.CardRank;
 import abstraction.card.CardType;
@@ -26,7 +24,7 @@ import abstraction.card.Cards;
 import abstraction.hand.Hand;
 
 // TODO à documenter
-final class BestHandFinder {
+public final class BestHandFinder {
 
     // TODO définir ces constantes dans une classe de plus haut niveau
     public final static int NUMBER_OF_CARDS_BY_PLAYER = 2;
@@ -40,6 +38,7 @@ final class BestHandFinder {
         WORST_CARDS[3] = Cards.get(CardType.CLUBS, CardRank.FIVE);
         WORST_CARDS[4] = Cards.get(CardType.HEARTS, CardRank.SEVEN);
     }
+    //private final static Hand WORST_HAND = Hands.get(WORST_CARDS);
     private final static Hand WORST_HAND = new Hand(WORST_CARDS);
 
     private final static Combinations COMBINATIONS = new Combinations(NUMBER_OF_CARDS_BY_PLAYER + NUMBER_OF_CARDS_IN_FLOP, Hand.NUMBER_OF_CARDS_IN_HAND);
@@ -52,9 +51,10 @@ final class BestHandFinder {
 
     private BestHandFinder() {}
 
-    private static Hand from(final CardInterface[] cards) {
+    public static Hand from(final CardInterface... cards) {
         Hand bestHand = WORST_HAND; // il y a toujours une main meilleure que cette pire main théorique        
         for (final int[] combination : NUMBER_OF_COMBINATIONS_FOR_7_ELEMENTS_TAKEN_BY_5) {
+            //final Hand currentHand = Hands.get(
             final Hand currentHand = new Hand(
                     cards[combination[0]],
                     cards[combination[1]],
@@ -68,29 +68,65 @@ final class BestHandFinder {
         return bestHand;
     }
 
+    /*
     public static Hand from(final CardInterface firstCard, final CardInterface secondCard, final CardInterface[] fiveCards) {
+        // TODO ? copier d'abord les 2 cartes 
         final CardInterface[] cards = Arrays.copyOf(fiveCards, 7);
         cards[5] = firstCard;
         cards[6] = secondCard;
         return BestHandFinder.from(cards);
     }
+    */
 
+    /*
     public static Hand from(final CardInterface[] twoCards, final CardInterface[] fiveCards) {
+        // TODO ? copier d'abord les 2 cartes
         final CardInterface[] cards = Arrays.copyOf(fiveCards, 7);
         cards[5] = twoCards[0];
         cards[6] = twoCards[1];
         return BestHandFinder.from(cards);
     }
+    */
+
+    /*
+    public static Hand from(final CardInterface[] twoCards, final Board board) {
+        return BestHandFinder.from(twoCards, board.toArray());
+    }
+    */
 
     public static void main(final String[] args) {
 
         // TODO ! écrire tests unitaires (avant)
-
+        /*
         for (final int[] combination : NUMBER_OF_COMBINATIONS_FOR_7_ELEMENTS_TAKEN_BY_5) {
             for (final int i : combination)
                 System.out.print(i);
             System.out.println();
         }
+        */
+
+        //test1();
     }
 
+    /*
+    public static void test1() {
+        final Deck deck = new Deck();
+        final CardInterface[] twoCards = new CardInterface[2];
+        final CardInterface[] fiveCards = new CardInterface[5];
+        final long t0 = System.currentTimeMillis();
+        for (int n = 0; n < 500000; ++n) {
+            for (int i = 0; i < 2; ++i)
+                twoCards[i] = deck.draw();
+            for (int i = 0; i < 5; ++i)
+                fiveCards[i] = deck.draw();
+            //BestHandFinder.from(twoCards, fiveCards);
+            BestHandFinder.from(twoCards[0], twoCards[1], fiveCards[0], fiveCards[1], fiveCards[2], fiveCards[3], fiveCards[4]);
+            deck.reset();
+        }
+        final long t1 = System.currentTimeMillis();
+        System.out.println(t1 - t0 + " ms");
+        //8807
+        //8216
+    }
+    */
 }

@@ -18,7 +18,7 @@
 package abstraction.card;
 
 // TODO ? pourrait hériter de Rankable, cf refactoring possible avec HighCard
-public interface CardInterface {
+public interface CardInterface extends Comparable<CardInterface> {
 
     CardType getType();
 

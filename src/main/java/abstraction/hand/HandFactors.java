@@ -17,12 +17,16 @@
 
 package abstraction.hand;
 
-final class HandFactors {
+import java.util.HashMap;
+import java.util.Map;
+
+public final class HandFactors {
 
     private HandFactors() {}
 
-    // TODO à documenter
-    public static int[] get(int product) {
+    public final static Map<Integer, int[]> DATA = new HashMap<Integer, int[]>();
+
+    public static int[] factors(int product) {
         final int[] result = new int[1 + 2 * 5];
         result[0] = 1;
         for (int prime = 2; prime * prime <= product; prime += 2) {
@@ -47,6 +51,16 @@ final class HandFactors {
             result[2 * result[0]] = 1;
         }
         return result;
+    }
+
+    // TODO à documenter
+    public static int[] get(final int product) {
+        int[] factors = DATA.get(product);
+        if (factors == null) {
+            factors = factors(product);
+            DATA.put(product, factors);
+        }
+        return factors;
     }
 
 }

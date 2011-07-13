@@ -48,4 +48,16 @@ public class Board {
         return Arrays.copyOf(this.data, this.numberOfCards);
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder(this.getTimeLine().toString());
+        sb.append(":");
+        for (final CardInterface card : this.toArray()) {
+            sb.append("   ");
+            sb.append(card);
+        }
+        sb.append("\n");
+        return sb.toString();
+    }
+
 }

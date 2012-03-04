@@ -1,0 +1,47 @@
+/*
+ * Copyright 2011 Arie Benichou
+ * 
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package cards;
+
+// TODO ? overrider compareTo
+public enum CardRank {
+
+    DEUCE(2),
+    TREY(3),
+    FOUR(5),
+    FIVE(7),
+    SIX(11),
+    SEVEN(13),
+    EIGHT(17),
+    NINE(19),
+    TEN(23),
+    JACK(29),
+    QUEEN(31),
+    KING(37),
+    ACE(41);
+
+    private final int id;
+
+    private CardRank(final int id) {
+        this.id = id;
+    }
+
+    public int getValue() {
+        return this.id;
+    }
+
+}
